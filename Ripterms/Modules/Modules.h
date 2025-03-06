@@ -256,6 +256,7 @@ namespace Ripterms
 			bool iron = true;
 			bool emerald = true;
 			bool lapis = true;
+			bool paladium = true;
 			bool other = true;
 
 			std::vector<RenderData> renderDatas{};

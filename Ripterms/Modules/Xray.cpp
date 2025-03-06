@@ -153,7 +153,7 @@ Ripterms::Modules::Xray::RenderData::RenderData(const Ripterms::Maths::Vector3d&
 		color = { 23, 21, 21, 40 };
 	else if (xray->paladium && paladium)
 		color = { 255, 255, 255, 40 };
-	else if (xray->other && !diamond && !gold && !iron && !lapis && !emerald && !redstone && !coal)
+	else if (xray->other && !diamond && !gold && !iron && !lapis && !emerald && !redstone && !coal && !paladium)
 		color = { 209, 100, 245, 40 };
 	else
 		render = false;
