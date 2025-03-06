@@ -15,6 +15,7 @@ void Ripterms::Modules::Xray::renderGUI()
 	ImGui::IOSToggle("Iron", &iron);
 	ImGui::IOSToggle("Emerald", &emerald);
 	ImGui::IOSToggle("Lapis", &lapis);
+	ImGui::IOSToggle("Paladium", &paladium);
 	ImGui::IOSToggle("Other", &other);
 }
 
@@ -134,6 +135,7 @@ Ripterms::Modules::Xray::RenderData::RenderData(const Ripterms::Maths::Vector3d&
 	bool emerald = blockName.find("emerald") != std::string::npos;
 	bool redstone = blockName.find("redstone") != std::string::npos;
 	bool coal = blockName.find("coal") != std::string::npos;
+	bool paladium = blockName.find("paladium") != std::string::npos;
 
 	if (xray->diamond && diamond)
 		color = { 76, 229, 237, 40 };
@@ -149,6 +151,8 @@ Ripterms::Modules::Xray::RenderData::RenderData(const Ripterms::Maths::Vector3d&
 		color = { 255, 41, 41, 40 };
 	else if (xray->coal && coal)
 		color = { 23, 21, 21, 40 };
+	else if (xray->paladium && paladium)
+		color = { 255, 255, 255, 40 };
 	else if (xray->other && !diamond && !gold && !iron && !lapis && !emerald && !redstone && !coal)
 		color = { 209, 100, 245, 40 };
 	else
