@@ -7,16 +7,27 @@
 
 void Ripterms::Modules::Xray::renderGUI()
 {
-	ImGui::CustomSliderInt("Radius", &RADIUS, 5, 50, 0, 0);
-	ImGui::IOSToggle("Coal", &coal);
-	ImGui::IOSToggle("Redstone", &redstone);
-	ImGui::IOSToggle("Diamond", &diamond);
-	ImGui::IOSToggle("Gold", &gold);
-	ImGui::IOSToggle("Iron", &iron);
-	ImGui::IOSToggle("Emerald", &emerald);
-	ImGui::IOSToggle("Lapis", &lapis);
-	ImGui::IOSToggle("Paladium", &paladium);
-	ImGui::IOSToggle("Other", &other);
+	ImGui::Checkbox("Xray", &enabled);
+	if (enabled)
+	{
+		ImGui::SetCursorPosX(ImGui::GetCursorPosX() + 15.0f);
+		ImGui::BeginGroup();
+		ImGui::SliderInt("Radius", &RADIUS, 5, 50);
+		ImGui::Checkbox("Coal", &coal);
+		ImGui::Checkbox("Redstone", &redstone);
+		ImGui::Checkbox("Diamond", &diamond);
+		ImGui::Checkbox("Gold", &gold);
+		ImGui::Checkbox("Iron", &iron);
+		ImGui::Checkbox("Emerald", &emerald);
+		ImGui::Checkbox("Lapis", &lapis);
+		ImGui::Checkbox("Paladium", &paladium);
+		ImGui::Checkbox("Titane", &titane);
+		ImGui::Checkbox("Findium", &findium);
+		ImGui::Checkbox("Amethyst", &amethyst);
+		ImGui::Checkbox("Trixium", &trixium);
+		ImGui::Checkbox("Other", &other);
+		ImGui::EndGroup();
+	}
 }
 
 void Ripterms::Modules::Xray::render()
@@ -136,6 +147,10 @@ Ripterms::Modules::Xray::RenderData::RenderData(const Ripterms::Maths::Vector3d&
 	bool redstone = blockName.find("redstone") != std::string::npos;
 	bool coal = blockName.find("coal") != std::string::npos;
 	bool paladium = blockName.find("paladium") != std::string::npos;
+	bool titane = blockName.find("titane") != std::string::npos;
+	bool findium = blockName.find("findium") != std::string::npos;
+	bool amethyst = blockName.find("amethyst") != std::string::npos;
+	bool trixium = blockName.find("trixium") != std::string::npos;
 
 	if (xray->diamond && diamond)
 		color = { 76, 229, 237, 40 };
@@ -152,8 +167,16 @@ Ripterms::Modules::Xray::RenderData::RenderData(const Ripterms::Maths::Vector3d&
 	else if (xray->coal && coal)
 		color = { 23, 21, 21, 40 };
 	else if (xray->paladium && paladium)
-		color = { 255, 0, 0, 40 };
-	else if (xray->other && !diamond && !gold && !iron && !lapis && !emerald && !redstone && !coal && !paladium)
+		color = { 249, 88, 19, 40 };
+	else if (xray->titane && titane)
+		color = { 58, 58, 58, 40 };
+	else if (xray->findium && findium)
+		color = { 249, 211, 19, 40 };
+	else if (xray->amethyst && amethyst)
+		color = { 200, 56, 236, 40 };
+	else if (xray->trixium && trixium)
+		color = { 69, 230, 69, 40 };
+	else if (xray->other && !diamond && !gold && !iron && !lapis && !emerald && !redstone && !coal && !paladium && !titane && !findium && !amethyst && !trixium)
 		color = { 209, 100, 245, 40 };
 	else
 		render = false;
