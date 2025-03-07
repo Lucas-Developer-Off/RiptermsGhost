@@ -20,11 +20,6 @@ void Ripterms::Modules::Xray::renderGUI()
 		ImGui::Checkbox("Iron", &iron);
 		ImGui::Checkbox("Emerald", &emerald);
 		ImGui::Checkbox("Lapis", &lapis);
-		ImGui::Checkbox("Paladium", &paladium);
-		ImGui::Checkbox("Titane", &titane);
-		ImGui::Checkbox("Findium", &findium);
-		ImGui::Checkbox("Amethyst", &amethyst);
-		ImGui::Checkbox("Trixium", &trixium);
 		ImGui::Checkbox("Other", &other);
 		ImGui::EndGroup();
 	}
@@ -169,7 +164,7 @@ Ripterms::Modules::Xray::RenderData::RenderData(const Ripterms::Maths::Vector3d&
 	else if (xray->paladium && paladium)
 		color = { 249, 88, 19, 40 };
 	else if (xray->titane && titane)
-		color = { 58, 58, 58, 40 };
+		color = { 20, 0, 255, 40 };
 	else if (xray->findium && findium)
 		color = { 249, 211, 19, 40 };
 	else if (xray->amethyst && amethyst)
