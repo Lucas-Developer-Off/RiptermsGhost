@@ -20,6 +20,12 @@ void Ripterms::Modules::Xray::renderGUI()
 		ImGui::Checkbox("Iron", &iron);
 		ImGui::Checkbox("Emerald", &emerald);
 		ImGui::Checkbox("Lapis", &lapis);
+		ImGui::Checkbox("Paladium", &paladium);
+		ImGui::Checkbox("Titane", &titane);
+		ImGui::Checkbox("Findium", &findium);
+		ImGui::Checkbox("Amethyst", &amethyst);
+		ImGui::Checkbox("Trixium", &trixium);
+		ImGui::Checkbox("Other", &other);
 		ImGui::Checkbox("Other", &other);
 		ImGui::EndGroup();
 	}
